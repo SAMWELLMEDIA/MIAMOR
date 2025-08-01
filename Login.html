@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - MI AMOR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #152c69, #266bda, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center text-white">
+
+  <div class="glass-card rounded-3xl p-8 md:p-10 max-w-md w-full shadow-xl">
+    <div class="flex items-center justify-center mb-6">
+      <img src="Images/MiAmor.jpeg" alt="Mi Amor Logo" class="h-12 w-12 rounded-full mr-2 shadow-md">
+      <h1 class="text-3xl font-extrabold tracking-wider text-blue-300">MI AMOR</h1>
+    </div>
+
+    <h2 class="text-2xl font-bold text-center mb-6 text-blue-100">Login to Your Account</h2>
+
+    <form id="loginForm" class="space-y-5">
+      <div>
+        <label class="block mb-1 text-blue-100 font-medium" for="email">Email</label>
+        <input id="email" type="email" required placeholder="you@example.com"
+          class="w-full px-4 py-3 rounded-xl bg-white/20 text-white placeholder-white/70 outline-none border border-white/30 focus:ring-2 focus:ring-blue-400"/>
+      </div>
+
+      <div>
+        <label class="block mb-1 text-blue-100 font-medium" for="password">Password</label>
+        <div class="relative">
+          <input id="password" type="password" required placeholder="••••••••"
+            class="w-full px-4 py-3 pr-12 rounded-xl bg-white/20 text-white placeholder-white/70 outline-none border border-white/30 focus:ring-2 focus:ring-blue-400"/>
+          <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-200 text-lg">
+            <i class="fa-solid fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-blue-800 hover:bg-blue-600 text-white py-3 rounded-xl font-semibold text-lg transition">
+        Login
+      </button>
+    </form>
+
+    <p class="mt-5 text-center text-sm text-blue-200">
+      Don't have an account?
+      <a href="signup.html" class="text-white font-bold hover:underline">Sign up</a>
+    </p>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+   
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedEmail = localStorage.getItem('loginEmail');
+      const savedPassword = localStorage.getItem('loginPassword');
+      if (savedEmail) emailInput.value = savedEmail;
+      if (savedPassword) passwordInput.value = savedPassword;
+    });
+
+    
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      localStorage.setItem('loginEmail', emailInput.value);
+      localStorage.setItem('loginPassword', passwordInput.value);
+      alert("Login successful (locally stored). Redirect logic goes here.");
+    });
+
+   
+    const toggleBtn = document.getElementById('togglePassword');
+    const eyeIcon = document.getElementById('eyeIcon');
+    toggleBtn.addEventListener('click', () => {
+      const isVisible = passwordInput.type === 'text';
+      passwordInput.type = isVisible ? 'password' : 'text';
+      eyeIcon.classList.toggle('fa-eye', isVisible);
+      eyeIcon.classList.toggle('fa-eye-slash', !isVisible);
+    });
+  </script>
+</body>
+</html>
+
+
+

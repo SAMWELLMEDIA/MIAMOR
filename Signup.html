@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - MI AMOR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #1e3a8a, #3b82f6, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(25px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .input-style {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+
+    .input-style::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .input-style:focus {
+      outline: none;
+      ring: 2px solid #3b82f6;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center text-white px-4">
+
+  <div class="glass-card max-w-xl w-full rounded-3xl p-8 md:p-10 shadow-2xl">
+    <div class="flex items-center justify-center mb-6">
+      <img src="Images/MiAmor.jpeg" alt="Mi Amor Logo" class="h-12 w-12 rounded-full mr-2 shadow-md">
+      <h1 class="text-3xl font-extrabold text-blue-300 tracking-widest">MI AMOR</h1>
+    </div>
+
+    <h2 class="text-2xl font-bold text-center mb-6 text-blue-100">Create an Account</h2>
+
+    <form id="signupForm" class="space-y-5">
+      <input type="text" id="fullname" placeholder="Full Name" required class="input-style"/>
+      <input type="email" id="email" placeholder="Email Address" required class="input-style"/>
+      <input type="text" id="username" placeholder="Username" required class="input-style"/>
+      <input type="tel" id="phone" placeholder="Phone Number" required class="input-style"/>
+
+      <div class="relative">
+        <input type="password" id="password" placeholder="Password" required class="input-style pr-12"/>
+        <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-700 text-lg">
+          <i class="fa-solid fa-eye" id="eyeIcon1"></i>
+        </button>
+      </div>
+
+      <div class="relative">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required class="input-style pr-12"/>
+        <button type="button" id="toggleConfirm" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-700 text-lg">
+          <i class="fa-solid fa-eye" id="eyeIcon2"></i>
+        </button>
+      </div>
+
+     
+      <div class="relative text-center">
+        <button type="button" id="paymentToggle"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition">
+          Make Payment For Registration
+        </button>
+
+        <div id="paymentDropdown"
+          class="absolute hidden w-full mt-2 bg-white/90 text-blue-900 rounded-xl shadow-md z-50">
+          <a href="ultra-payment.html" class="block px-4 py-3 hover:bg-blue-100 border-b border-blue-200 payment-link" data-plan="Ultra">
+          Make Payment for <strong>Ultra</strong>
+          </a>
+          <a href="plus-payment.html" class="block px-4 py-3 hover:bg-blue-100 payment-link" data-plan="Plus">
+          Make Payment for <strong>Plus</strong>
+          </a>
+
+        </div>
+      </div>
+    </form>
+
+    <p class="mt-6 text-center text-sm text-blue-200">
+      Already have an account? 
+      <a href="login.html" class="text-blue-800 font-bold hover:underline">Login here</a>
+    </p>
+  </div>
+
+ <script>
+  const togglePassword = document.getElementById("togglePassword");
+  const password = document.getElementById("password");
+  const eyeIcon1 = document.getElementById("eyeIcon1");
+
+  togglePassword.addEventListener("click", () => {
+    const show = password.type === "text";
+    password.type = show ? "password" : "text";
+    eyeIcon1.className = show ? "fa-solid fa-eye" : "fa-solid fa-eye-slash";
+  });
+
+  const toggleConfirm = document.getElementById("toggleConfirm");
+  const confirmPassword = document.getElementById("confirmPassword");
+  const eyeIcon2 = document.getElementById("eyeIcon2");
+
+  toggleConfirm.addEventListener("click", () => {
+    const show = confirmPassword.type === "text";
+    confirmPassword.type = show ? "password" : "text";
+    eyeIcon2.className = show ? "fa-solid fa-eye" : "fa-solid fa-eye-slash";
+  });
+
+  const toggleBtn = document.getElementById("paymentToggle");
+  const dropdown = document.getElementById("paymentDropdown");
+
+  toggleBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add("hidden");
+    }
+  });
+
+  // Listen for each payment option
+  document.querySelectorAll("#paymentDropdown a").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const pass = document.getElementById("password").value;
+      const confirm = document.getElementById("confirmPassword").value;
+
+      if (!name || !email || !username || !phone || !pass || !confirm) {
+        alert("Please fill in all fields before making payment.");
+        return;
+      }
+
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Save to local storage
+      localStorage.setItem("miamor_fullname", name);
+      localStorage.setItem("miamor_email", email);
+      localStorage.setItem("miamor_username", username);
+      localStorage.setItem("miamor_phone", phone);
+      localStorage.setItem("miamor_password", pass);
+
+      const plan = e.target.getAttribute("data-plan") || 
+                   (e.target.closest('a')?.getAttribute("data-plan")) || "";
+
+      localStorage.setItem("miamor_plan", plan);
+
+      // Redirect
+      if (plan === "Ultra") {
+        window.location.href = "ultra-payment.html";
+      } else if (plan === "Plus") {
+        window.location.href = "plus-payment.html";
+      }
+    });
+  });
+</script>
+</body>
+</html>
+

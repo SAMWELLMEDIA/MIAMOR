@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ultra Plan Payment</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-600 to-white">
+
+  <div class="bg-white/90 text-blue-800 p-6 rounded-2xl shadow-2xl w-full max-w-md text-center">
+    <h2 class="text-2xl font-bold mb-4">Ultra Plan Payment</h2>
+
+    <div class="space-y-2 text-left mb-6">
+      <p><strong>Full Name:</strong> <span id="name"></span></p>
+      <p><strong>Email:</strong> <span id="email"></span></p>
+      <p><strong>Username:</strong> <span id="username"></span></p>
+      <p><strong>Phone:</strong> <span id="phone"></span></p>
+      <p><strong>Plan:</strong> <span id="plan">Ultra</span></p>
+      <p class="text-xl font-semibold text-white mt-4">Amount: $14 / ₦14,000</p>
+    </div>
+
+    <button onclick="window.location.href='https://checkout.korapay.com/pay/ultra'" 
+  class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl w-full transition mb-4">
+  Make Payment to complete Registration
+</button>
+
+    <a href="https://wa.me/2347046425151?text=Hi,%20I%20need%20help%20with%20payment%20for%20other%20countries%20on%20the%20Ultra%20Plan." 
+       target="_blank"
+       class="inline-block bg-white hover:bg-blue-500 text-blue-800 font-bold py-3 px-6 rounded-xl w-full transition">
+      Payments for Other Countries
+    </a>
+  </div>
+
+  <script>
+    // Load user data from localStorage
+    document.getElementById("name").textContent = localStorage.getItem("miamor_fullname") || "N/A";
+    document.getElementById("email").textContent = localStorage.getItem("miamor_email") || "N/A";
+    document.getElementById("username").textContent = localStorage.getItem("miamor_username") || "N/A";
+    document.getElementById("phone").textContent = localStorage.getItem("miamor_phone") || "N/A";
+
+    function completePayment() {
+      alert("Payment Successful for Ultra Plan!");
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>
+
+
