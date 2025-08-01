@@ -6,7 +6,7 @@
   
   <title>MiAmor - Find Love, Earn Daily & Grow with Skills</title>
 
-  <!-- ✅ Primary Meta Tags -->
+ 
   <meta name="title" content="MiAmor - Find Love, Earn Daily & Grow with Skills">
   <meta name="description" content="MiAmor is Africa's most rewarding platform to find love, earn money through social media tasks, win giveaways, learn digital skills, and enjoy all-expense-paid love trips. Join now.">
   <meta name="keywords" content="MiAmor, love platform, find love, dating in Africa, earn online, social media tasks, love trips, romantic getaway, relationship platform Nigeria, digital skill learning, make money online, Mi Amor, MiAmor Nigeria">
@@ -15,28 +15,26 @@
   <meta name="language" content="en">
   <meta name="theme-color" content="#fc4181">
 
-  <!-- ✅ Open Graph / Facebook -->
+  
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.miamor.org.ng/">
   <meta property="og:title" content="MiAmor - Find Love, Earn Daily & Grow with Skills">
   <meta property="og:description" content="MiAmor is Africa's most rewarding platform to find love, earn money, and gain real-world skills.">
   <meta property="og:image" content="https://www.miamor.org.ng/images/MiAmor.jpeg">
 
-  <!-- ✅ Twitter -->
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.miamor.org.ng/">
   <meta name="twitter:title" content="MiAmor - Find Love, Earn Daily & Grow with Skills">
   <meta name="twitter:description" content="MiAmor connects you to true love, income opportunities, and skill development.">
   <meta name="twitter:image" content="https://www.miamor.org.ng/images/MiAmor.jpeg">
 
-  <!-- ✅ Favicon -->
+
 <link rel="icon" type="Images\jpeg" sizes="32x32" href="Images\MiAmor-32x32.jpeg">
 
-
-  <!-- ✅ CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ✅ Structured Data for Rich Snippet -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,8 +49,6 @@
     ]
   }
   </script>
-
-  <!-- ✅ Site Verification (Optional but Recommended) -->
   <meta name="google-site-verification" content="PUT_YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
 </head>
 
@@ -76,18 +72,38 @@
   </style>
 </head>
 <body class="px-4 md:px-0">
-  <header class="flex justify-between items-center p-6 max-w-5xl mx-auto">
+  <body class="px-4 md:px-0 bg-white text-[#0f172a] font-sans">
+  <header class="flex justify-between items-center p-6 max-w-5xl mx-auto relative z-50">
+    
     <div class="flex items-center space-x-2">
-  <img src="Images/LOGO.jpeg" alt="MiAmor Logo" class="h-10 w-10 rounded-full object-cover border-2 border-white shadow-md" />
-  <h1 class="text-xl font-bold">MiAmor</h1>
-</div>
+      <img src="Images/LOGO.jpeg" alt="MiAmor Logo" class="h-10 w-10 rounded-full object-cover border-2 border-white shadow-md" />
+      <h1 class="text-xl font-bold text-white">Mi Amor</h1>
+    </div>
 
-    <nav class="hidden md:flex space-x-8 text-gray-300">
-      <a href="testing.html" class="hover:text-blue-700">Home</a>
-      <a href="Features.html" class="hover:text-blue-700">Features</a>
-      <a href="Earnings.html" class="hover:text-blue-700">Earnings</a>
-      <a href="Signup.html" class="hover:text-blue-700">SignUp</a>
+    
+    <nav class="hidden md:flex space-x-8 text-[#0f172a] font-semibold">
+      <a href="testing.html" class="hover:text-[#00e0ff]">Home</a>
+      <a href="Features.html" class="hover:text-[#00e0ff]">Features</a>
+      <a href="Earnings.html" class="hover:text-[#00e0ff]">Earnings</a>
+      <a href="Signup.html" class="hover:text-[#00e0ff]">SignUp</a>
     </nav>
+
+    <div class="md:hidden">
+      <button id="menuToggle" class="focus:outline-none">
+        <svg class="w-7 h-7 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden absolute top-full right-0 mt-3 w-52 bg-gradient-to-b from-white to-blue-700 rounded-md p-4 flex flex-col space-y-4 md:hidden shadow-xl">
+      <a href="testing.html" class="text-white hover:text-[#00e0ff] font-semibold">Home</a>
+      <a href="Features.html" class="text-white hover:text-[#00e0ff] font-semibold">Features</a>
+      <a href="Earnings.html" class="text-white hover:text-[#00e0ff] font-semibold">Earnings</a>
+      <a href="Signup.html" class="text-white hover:text-[#00e0ff] font-semibold">SignUp</a>
+    </div>
+  </header>
     <div class="md:hidden">
       <button><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     </div>
