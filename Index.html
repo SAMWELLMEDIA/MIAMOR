@@ -531,12 +531,18 @@
   });
 </script>
 <script>
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('mobileMenu');
+  const checkbox = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-  </script>
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      mobileMenu.classList.remove('scale-y-0');
+      mobileMenu.classList.add('scale-y-100');
+    } else {
+      mobileMenu.classList.add('scale-y-0');
+      mobileMenu.classList.remove('scale-y-100');
+    }
+  });
+</script>
 </body>
 </html>
